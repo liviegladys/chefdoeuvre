@@ -4,8 +4,8 @@ module.exports = app => {
   router.get('/',(req,res)=>{
       res.send("accueil")
   })
-  router.get('/produits',(req,res)=>{
-    res.send("produit")
+  router.get('/app/views/produits',(req,res)=>{
+    res.send("produits.html")
 })
     
    
