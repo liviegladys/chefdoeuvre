@@ -7,7 +7,7 @@ const db = {
     mongoose:mongoose,//stockerr la bibliotheque mongoose dans la cle mongoose
     url:dbConfig.url,
     product:require('./product_model.js')(mongoose),
-    users:require('./users_model.js')(mongoose)
+    // users:require('./users_model.js')(mongoose)
 };
 // db.mongoose = mongoose;//
 // db.url = dbConfig.url;

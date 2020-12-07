@@ -4,15 +4,15 @@ const Product = db.product;
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.ProduitTitre) {//si le titre n' existe pas 
-      res.status(400).send({ message: "Le titre du produit ne peut etre vide!" });
-      return;// le programme s' arrete 
-    } 
+    // if (!req.body.ProduitTitre) {//si le titre n' existe pas 
+    //   res.status(400).send({ message: "Le titre du produit ne peut etre vide!" });
+    //   return;// le programme s' arrete 
+    // } 
 
-    if (!req.body.ProduitPrix) {//si le titre n' existe pas 
-      res.status(400).send({ message: "Le Prix du produit  est obligatoire!" });
-      return;// le programme s' arrete 
-    } 
+    // if (!req.body.ProduitPrix) {//si le titre n' existe pas 
+    //   res.status(400).send({ message: "Le Prix du produit  est obligatoire!" });
+    //   return;// le programme s' arrete 
+    // } 
   
     // Create a Tutorial
     const product = new Product({
@@ -30,6 +30,7 @@ exports.create = (req, res) => {
       .then(data => {
         res.send(data);
       })
+      console.log('rend le moi')
       .catch(err => {
         res.status(500).send({
           message:

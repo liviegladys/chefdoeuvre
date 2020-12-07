@@ -6,12 +6,12 @@ module.exports = app => {
       router.post("/", users.create);
 
 
-      router.put("/:id", users.update);
+      // router.put("/:id", users.update);
   
-      // Delete  
-      router.delete("/:id", users.delete);
+      // // Delete  
+      // router.delete("/:id", users.delete);
     
-      app.use('/api/users', router);
+      // app.use('/api/users', router);
 
 
 };
