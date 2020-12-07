@@ -13,9 +13,9 @@ app.use(cors(corsOption));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-app.get('/',(req,res)=>{
-    res.json({message:"Bienvenue chez Gladys"})
-});
+// app.get('/',(req,res)=>{
+//     res.json({message:"Bienvenue chez Gladys"})
+// });
 
 
 db.mongoose
@@ -36,6 +36,7 @@ db.mongoose
 
   
 require("./app/routes/product_routes")(app);
+require("./app/routes/client_routes")(app);
 
 const PORT=process.env.PORT||3090;
 app.listen(PORT,()=>{
