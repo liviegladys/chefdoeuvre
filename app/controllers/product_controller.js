@@ -1,59 +1,58 @@
+const { product } = require("../models");
 const db = require("../models");// il va chercher index dans models
 const Product = db.product;
 
-// Create and Save a new Tutorial
+// Create and Save a new product
 exports.create = (req, res) => {
     // Validate request
-    // if (!req.body.ProduitTitre) {//si le titre n' existe pas 
-    //   res.status(400).send({ message: "Le titre du produit ne peut etre vide!" });
-    //   return;// le programme s' arrete 
-    // } 
+    if (!req.body.ProduitTitre) {//si le titre n' existe pas 
+      res.status(400).send({ message: "Le titre du produit ne peut etre vide!" });
+      return;// le programme s' arrete 
+    } 
 
-    // if (!req.body.ProduitPrix) {//si le titre n' existe pas 
-    //   res.status(400).send({ message: "Le Prix du produit  est obligatoire!" });
-    //   return;// le programme s' arrete 
-    // } 
+    if (!req.body.ProduitPrix) {//si le titre n' existe pas 
+      res.status(400).send({ message: "Le Prix du produit  est obligatoire!" });
+      return;// le programme s' arrete 
+    } 
   
-    // Create a Tutorial
+    // Create a Product
     const product = new Product({
       ProduitTitre: req.body.ProduitTitre,
       ProduitDescrip: req.body.ProduitDescrip,
       ProduitPrix: req.body.ProduitPrix ,
       ProduitRegion:req.body.ProduitRegion,
-      ProduitPic:req.body.ProduitPic
+      ProduitPic:req.body.ProduitPic,
+
+      Categorie:req.body.Cate,
+      Sell:req.body.Sell
     
     });
   
-    // Save Tutorial in the database
+    // Save product in the database
     product
-      .save(product)
-      .then(data => {
-        res.send(data);
+      .save((err,product)=>{
+        if(err){
+          res.send('erreur' +err)
+        }else{
+          res.send(product)
+        }
       })
-      console.log('rend le moi')
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "il y a eu des erreurs lors de la création du produit."
-        });
-      });
+    
   };
 
-// Retrieve all Tutorials from the database.
+// Retrieve all product from the database.
 exports.findAll = (req, res) => {
     // const ProduitTitre = req.query.ProduitTitre;
     // var condition = ProduitTitre ? { ProduitTitre: { $regex: new RegExp(ProduitTitre), $options: "i" } } : {};
   
-    Product.find()
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "il y a eu des erreurs lors de la recherche des produits."
-        });
-      });
+    Product.find((err,product)=>{
+      if(err){
+        res.sendStatus(500)
+      }else{
+        res.send(product)
+      }
+    })
+    
   };
 
 // Find a single Tutorial with an id
@@ -73,7 +72,7 @@ exports.findOne = (req, res) => {
       });
   };
 
-// Update a Tutorial by the id in the request
+// Update a Product by the id in the request
 exports.update = (req, res) => {
     if (!req.body) {
       return res.status(400).send({
@@ -98,7 +97,7 @@ exports.update = (req, res) => {
       });
   };
 
-// Delete a Tutorial with the specified id in the request
+// Delete a product  with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
   
@@ -120,7 +119,7 @@ exports.delete = (req, res) => {
         });
       });
   };
-// Delete all Tutorials from the database.
+// Delete all Products from the database.
 exports.deleteAll = (req, res) => {
     Product.deleteMany({})
       .then(data => {

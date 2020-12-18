@@ -3,11 +3,17 @@ const bodyParser=require('body-parser');
 const cors = require('cors');
 const app= express()
 const db = require("./app/models");
+const router=require('./app/routes/users_routes')
+app.set('views','./app/views')
+app.set('view engine','ejs')
+
+
 
 const corsOption={
     origin:"http:/localhost:3090"
 }
 
+app.use(express.static("public"))
 app.use(cors(corsOption));
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -37,6 +43,8 @@ db.mongoose
   
 require("./app/routes/product_routes")(app);
 require("./app/routes/client_routes")(app);
+//require("./app/routes/users_routes")(app);
+app.use('/api/users', router)
 
 const PORT=process.env.PORT||3090;
 app.listen(PORT,()=>{

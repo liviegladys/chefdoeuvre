@@ -1,17 +1,25 @@
-module.exports = app => {
-      const users = require("../controllers/users_controller.js");
+  const users = require("../controllers/users_controller.js");
     
-      var router = require("express").Router();
+      const router = require("express").Router();
 
       router.post("/", users.create);
 
-
-      // router.put("/:id", users.update);
   
-      // // Delete  
-      // router.delete("/:id", users.delete);
+    // Afficher tous les utilisateurs
+    router.get("/", users.findAll);
+   
+    // Retrouver l utilisateur par son id
+    router.get("/:id", users.findOne);
+
+    //router.get("/:id", users.findAndLog);
+  
+    // Mettre à jour l' utilisateur par id
+    router.put("/:id", users.update);
+
+  
+      // Delete  
+       router.delete("/:id", users.delete);
     
-      // app.use('/api/users', router);
+    module.exports=router;
 
 
-};

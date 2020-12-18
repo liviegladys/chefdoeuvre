@@ -2,12 +2,14 @@ module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
             ProduitTitre: { type: String,required:true },
-            ProduitPic: { type: String, },
+            ProduitPic: { type: String,default:"fruits.jpg" },
             ProduitDescrip: { type: String, },
             ProduitRegion: { type: String, },
-            ProduitPrix: { type: Number,required:true },
-            Sell:{type:Boolean,default:false}
-            //Categorie: { type: mongoose.Schema.Types.ObjectId, ref: 'cat' },
+            ProduitPrix: { type: Number },
+            Sell:{type:Boolean,default:false},
+            Cate:{type:String,enum:['Fruits et Legumes','Produits laitiers','Poisson et Viande','Patisserie']} //
+
+            
         },
 
 
@@ -23,3 +25,9 @@ module.exports = mongoose => {
 
     return Products;
   };
+
+
+
+
+
+
