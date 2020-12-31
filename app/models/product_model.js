@@ -9,7 +9,6 @@ module.exports = mongoose => {
             Sell:{type:Boolean,default:false},
             Cate:{type:String,enum:['Fruits et Legumes','Produits laitiers','Poisson et Viande','Patisserie']} //
 
-            
         },
 
 

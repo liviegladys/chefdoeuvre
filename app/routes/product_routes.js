@@ -7,13 +7,13 @@ module.exports = app => {
     router.post("/", products.create);
   
     // Retrieve all Tutorials
-    router.get("/", products.findAll);
+    // router.get("/", products.findAll);
   
     // Retrieve all published Tutorials
-    router.get("/sell", products.findAllSell);
+    // router.get("/sell", products.findAllSell);
   
     // Retrieve a single Tutorial with id
-    router.get("/:id", products.findOne);
+    // router.get("/:id", products.findOne);
   
     // Update a Tutorial with id
     router.put("/:id", products.update);
@@ -23,6 +23,8 @@ module.exports = app => {
   
     // Create a new Tutorial
     router.delete("/", products.deleteAll);
+    router.get("/:Cate",products.findByCate)
   
     app.use('/api/products', router);
   };
+  

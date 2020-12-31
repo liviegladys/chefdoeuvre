@@ -22,8 +22,7 @@ exports.create = (req, res) => {
       ProduitPrix: req.body.ProduitPrix ,
       ProduitRegion:req.body.ProduitRegion,
       ProduitPic:req.body.ProduitPic,
-
-      Categorie:req.body.Cate,
+      Cate:req.body.Cate,
       Sell:req.body.Sell
     
     });
@@ -72,6 +71,27 @@ exports.findOne = (req, res) => {
       });
   };
 
+
+  //  async getAllProducts(req,res, next) {
+  //   const products= await produit_model.find({}).exec();
+  //   console.log(products)
+
+  //   res.render('pages/product',{
+  //           products:products,// passer une variable dansle rendu de page
+  //           message:"coucou"
+  //          })
+   
+  // } ,
+  exports.findByCate=(req,res)=>{
+    const cate = req.params.Cate;
+     Product.find({Cate:cate}).then(products=>{
+      res.render("produits",{produits:products})
+    })
+  }
+
+
+
+  
 // Update a Product by the id in the request
 exports.update = (req, res) => {
     if (!req.body) {

@@ -17,7 +17,7 @@ const url="http://localhost:3090/api/products";
           ProduitDescrip: document.querySelector("#DescriptionProd").value,
           ProduitRegion: document.querySelector("#Region").value,
           ProduitPrix: document.querySelector("#prix").value,
-          Cate:document.querySelector("#Categorie")
+          Cate:document.querySelector("#Categorie").value
           
           
         }),

@@ -10,9 +10,7 @@ const url="http://localhost:3090/api/users";
           "Content-Type": "application/json",
         
         },
-        
-
-
+      
         body: JSON.stringify({
           Nom: document.querySelector("#nom").value,
           Prenom: document.querySelector("#prenom").value,

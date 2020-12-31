@@ -1,3 +1,42 @@
+@charset "utf-8";
+
+
+header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
+
+
+div, header, nav, article, section, aside, footer, h1, h2, h3, h4, h5, h6, p, a, ul, li, figure, figcaption, class, img { 
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    border: 0 solid transparent;
+    font-size: 16px;
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+    width: 100%;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+}
+
+img, object, embed, canvas, video, audio, picture, svg {
+    max-width: 100%;
+    height: auto;
+}
+img {
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .entete{
     width: 100%;
     height: auto;
@@ -7,14 +46,11 @@ margin: 0px;
 padding: 0px;
 }
 
-
-
 .imagediantaba{
     background-image: url('../images/pageacceuil2.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
  
-
 }
 
 .glad{
@@ -42,6 +78,20 @@ padding: 0px;
     height: 80px;
     
 }
+.navbar-nav{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo-index{
+    background-image: url('./images/logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20%;
+    height: 50px;
+
+}
 
 .a:hover{
     color: white;
@@ -51,13 +101,10 @@ padding: 0px;
     color: white;
 }
 
-img {
-	width: 50px;
-	height: 50px;
-}
 
 
-PAGE DE CONNEXION
+
+PAGE INSCRIPTION
 
 .gauche, .droite{
       height: 50vh;
@@ -65,7 +112,7 @@ PAGE DE CONNEXION
   }
   
   .gauche{
-      background-image: url('../images/cnxdroite.jpg');   
+      background-image: url('../images/cnxdroite.jpg');  
       background-repeat: no-repeat;
       background-size: cover;  
       background-position-y: 80%;
@@ -153,26 +200,186 @@ PAGE DE CONNEXION
       transition: 0.6s;
   }
   
+PAGE CATEGORIE
 
-  PAGE Inscription Particulier
-  .formulaireParticulier{
+
+  
+  
+  .activ {
+    background-color: #fff;
+  }
+
+  .open {
+    right: 30px !important;
+    -webkit-transition: all 1s !important;
+    transition: all 1s !important;
+  }
+
+  .sidenav {
+    -webkit-backface-visibility: inherit !important;
+            backface-visibility: inherit !important;
+    -webkit-transform: none !important;
+            transform: none !important;
+    background-color: white !important;
+    width: 330px !important;
+    height: 70vh !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    top: 100px !important;
+
+  }
+
+  .sidenav .contener-nav .nav-gauche a {
+    color:black;
+    padding-left: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px !important;
+  }
+  .navCate{
+      background-color: black;
+      height: 100px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+  }
+
+  .navCate .burger{
+
     position: relative;
-    width: 2998px;
-    height: 3068px;
-    border: solid;
-    background:black;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #43E885;
+  }
+
+  .navCate .burger span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navCate .burger span:nth-child(2) {
+    top: 50%;
+    
+  }
+  
+  .navCate .burger span:nth-child(3) {
+    top: 20%;
+  }
+  
+.navCate .burger p{
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    color: white;
 }
+
+  /*PAGE Inscription Particulier*/
+  
+.formulaireParticulier {
+    justify-content: center;
+    border: none;
+    height: 100%;
+    width: 100%;
+    background-color:rgb(59, 54, 54) ;
+    position: absolute;
+    display: block;
+   
+   
+    
+}
+
+input[type=text], textarea, input[type=email], input[type=password] {
+    width: 40%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-bottom: 1px;
+    margin-right: 0px;
+    margin-left: 0px;
+    resize: vertical;
+    position: relative;
+    display: block;
+    left: 40%;
+   
+    
+  }
 
 
 .info{
       width: 50%;
       height: 30px;
-      justify-content: center;   
+      justify-content: center; 
+      position: relative;
+      display: block;
+      left: 40%;  
 }
 
 label{
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+    text-align: left;
+    justify-content: center;
+    position: relative;
+    display: block;
+    left: 40%;
     
-      text-align: left;
 }
 
+input[type=submit] {
+  
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    left: 800px;
+    top: 560px;
+    background: rgba(0, 255, 117, 0.71);
+   
+    box-sizing: border-box;
+    
 
+  }
+  
+  input[type=submit]:hover {
+    background-color: #2bf36e;
+    
+  }
+  
+  .container {
+        /* Ajouter box-sizing */
+        box-sizing : border-box;
+        border-radius:5px;
+        padding:10px;
+        width: 100%;
+        /* redéfinition 400 + 2*20 */
+        max-width: 1000px;
+        margin:0 auto;
+  }
+  h1  {
+    color: #e0dfda;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    display: block;
+    left: 40%;
+
+  }

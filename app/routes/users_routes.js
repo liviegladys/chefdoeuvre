@@ -4,6 +4,8 @@
 
       router.post("/", users.create);
 
+      router.post("/login",users.findAndLog)
+
   
     // Afficher tous les utilisateurs
     router.get("/", users.findAll);

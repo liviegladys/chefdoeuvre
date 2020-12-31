@@ -57,34 +57,20 @@ exports.findOne = (req, res) => {
     });
 };
 
-exports.findAndLog = (req, res) => {
+exports.findAndLog = async (req, res) => {
       console.log(req.body)
-      User.findOne({ Mail: req.body.Mail }).then((user) => {
+      User.findOne({ Email: req.body.Mail }).then(async(user) => {
         console.log('verification',user)
         if (user !== null) {
-          bcrypt.compare(req.body.Password, user.Password, (function (error, same) {
-            if (same ) {
-              const token = jwt.sign(
-                {
-                  email: user.Mail,
-                  userId: user._id
-                },
-                sercetCode,
-                {
-                  expiresIn: "24h"
-                }
-              );
-              console.log(user)
-              res.status(200).json({
-                "user": user,
-                "token":token
-              });
+          await bcrypt.compare(req.body.Password, user.Mot_de_passe,  (err, same)=>{
+            if(err){
+             console.log(err)
+            }else if(!same){
+console.log("mot de passe incorrecte")
+            }else{
+              res.render("categorie",{user:user})
             }
-            else {
-              console.log("err");
-              res.send(error)
-            }
-          }))
+          })
         } else {
           console.log("f err");
           res.sendStatus(401).send('Utilisateur non reconnu')

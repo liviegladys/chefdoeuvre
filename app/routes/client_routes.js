@@ -16,6 +16,13 @@ router.get('/supprimerProduit',(req,res)=>{
   res.render("supprimerProduit")
 })
 
+router.get('/connexion',(req,res)=>{
+  res.render("connexion")
+})
+router.get('/categorie',(req,res)=>{
+  res.render("categorie")
+})
+
 router.get('/ajoutProduit',(req,res)=>{
   res.render("ajoutProduit")
 })
