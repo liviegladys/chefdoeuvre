@@ -3,9 +3,13 @@ const bodyParser=require('body-parser');
 const cors = require('cors');
 const app= express()
 const db = require("./app/models");
-const router=require('./app/routes/users_routes')
+const routerProduit= require('./app/routes/product_routes')
+const routerAjoutProduit= require('./app/routes/client_routes')
+
+const routerUser=require('./app/routes/users_routes')
 app.set('views','./app/views')
 app.set('view engine','ejs')
+
 
 
 
@@ -41,10 +45,15 @@ db.mongoose
 
 
   
-require("./app/routes/product_routes")(app);
-require("./app/routes/client_routes")(app);
+// require("./app/routes/product_routes")(app);
+// require("./app/routes/client_routes")(app);
 //require("./app/routes/users_routes")(app);
-app.use('/api/users', router)
+app.use('/api/users', routerUser)
+app.use('/produits', routerProduit)
+app.use('/ajout-produit', routerAjoutProduit)
+
+
+
 
 const PORT=process.env.PORT||3090;
 app.listen(PORT,()=>{

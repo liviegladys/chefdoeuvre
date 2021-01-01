@@ -40,19 +40,30 @@ exports.create = (req, res) => {
   };
 
 // Retrieve all product from the database.
-exports.findAll = (req, res) => {
+
+
+  exports.findAll = (req, res) => {
+    Product.find((err, product) => {
+  
+      if (err) {
+        res.sendStatus(500)
+      } else {
+        res.render("produits", { produits: product })
+      }
+    })
+  
     // const ProduitTitre = req.query.ProduitTitre;
     // var condition = ProduitTitre ? { ProduitTitre: { $regex: new RegExp(ProduitTitre), $options: "i" } } : {};
   
-    Product.find((err,product)=>{
-      if(err){
-        res.sendStatus(500)
-      }else{
-        res.send(product)
-      }
-    })
+  //   Product.find((err,product)=>{
+  //     if(err){
+  //       res.sendStatus(500)
+  //     }else{
+  //       res.send(product)
+  //     }
+  //   })
     
-  };
+   };
 
 // Find a single Tutorial with an id
 exports.findOne = (req, res) => {
@@ -69,19 +80,11 @@ exports.findOne = (req, res) => {
           .status(500)
           .send({ message: "Error retrieving Tutorial with id=" + id });
       });
+    
   };
 
-
-  //  async getAllProducts(req,res, next) {
-  //   const products= await produit_model.find({}).exec();
-  //   console.log(products)
-
-  //   res.render('pages/product',{
-  //           products:products,// passer une variable dansle rendu de page
-  //           message:"coucou"
-  //          })
+  
    
-  // } ,
   exports.findByCate=(req,res)=>{
     const cate = req.params.Cate;
      Product.find({Cate:cate}).then(products=>{

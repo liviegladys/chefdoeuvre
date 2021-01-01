@@ -5,14 +5,16 @@ const app = express();
 const bodyParser= require('body-parser')
 const addProduct=require('../js/addProduct')
 const ajoutProduit=require('../views/ajoutProduit')
-
-app.get("/produits", (req, res) => {
+console.log(true);
+app.get("/api/products", (req, res) => {
     const products = {
       produits: "produits",
       
     };
-    res.render("produits", { produits: products });
+    console.log("result: ",res.body);
+    //res.render("produits", { produits: products });
   });
+
 
 
   
