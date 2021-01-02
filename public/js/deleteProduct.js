@@ -1,4 +1,4 @@
-const url="http://localhost:3090/api/products";
+const url="http://localhost:3090/api/users";
 
 
 
@@ -12,10 +12,8 @@ const url="http://localhost:3090/api/products";
         },
         
         body: JSON.stringify({
- 
-         
+          Email: document.querySelector("#mail").value,
         
-          
         }),
       };
     

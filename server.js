@@ -41,18 +41,12 @@ db.mongoose
     process.exit();
   });
 
-
-
-
-  
 // require("./app/routes/product_routes")(app);
 // require("./app/routes/client_routes")(app);
 //require("./app/routes/users_routes")(app);
 app.use('/api/users', routerUser)
 app.use('/produits', routerProduit)
-app.use('/ajout-produit', routerAjoutProduit)
-
-
+ app.use('/', routerAjoutProduit)
 
 
 const PORT=process.env.PORT||3090;

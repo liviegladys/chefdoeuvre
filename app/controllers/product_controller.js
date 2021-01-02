@@ -51,17 +51,7 @@ exports.create = (req, res) => {
         res.render("produits", { produits: product })
       }
     })
-  
-    // const ProduitTitre = req.query.ProduitTitre;
-    // var condition = ProduitTitre ? { ProduitTitre: { $regex: new RegExp(ProduitTitre), $options: "i" } } : {};
-  
-  //   Product.find((err,product)=>{
-  //     if(err){
-  //       res.sendStatus(500)
-  //     }else{
-  //       res.send(product)
-  //     }
-  //   })
+
     
    };
 

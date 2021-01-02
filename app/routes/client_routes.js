@@ -49,9 +49,9 @@ const router = express.Router();
 router.get('/', (req, res) => {
   res.render("accueil")
 })
-router.get('/produits', (req, res) => {
-  res.render("produits")
-})
+// router.get('/produits', (req, res) => {
+//   res.render("produits")
+// })
 
 router.get('/modifierProduit', (req, res) => {
   res.render("modifierProduit")

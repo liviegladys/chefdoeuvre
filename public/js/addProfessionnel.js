@@ -12,7 +12,6 @@ let form=document.getElementById('formAddUser')
       
         body: JSON.stringify({
           Nom: document.querySelector("#nom").value,
-          Prenom: document.querySelector("#prenom").value,
           Email: document.querySelector("#mail").value,
           Mot_de_passe: document.querySelector("#password").value,
           

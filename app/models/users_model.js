@@ -6,7 +6,7 @@ const Schema=mongoose.Schema
           {
 
             Nom: { type: String,required:true },
-            Prenom: { type: String, required:true },
+            Prenom: { type: String },
             Email: { type: String, required:true,unique:true},
             Mot_de_passe: { type: String, required:true},
            
